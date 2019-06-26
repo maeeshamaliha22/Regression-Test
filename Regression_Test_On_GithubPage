@@ -23,6 +23,12 @@ test(`Click Sign In`, async t => {
     await t.wait(3000);// wait for checking the repository name
     await t.click(Selector('.btn').withText('Create repository'));//click create respository button
     
+    await t.click(Selector('a').withText('creating a new file'));//click "creating a new file"
+    await t.typeText(fileName,'test');//file name input
+    await t.wait(2000);
+    await t.typeText(commitNewFile, 'created new file');//commit summary
+    await t.click(Selector('#submit-file'));//commit button click
+    
   
  
 });
