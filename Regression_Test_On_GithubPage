@@ -20,8 +20,9 @@ test(`Click Sign In`, async t => {
     await t.click(Selector('.dropdown-caret'));//click '+' button
     await t.click(Selector('.dropdown-item'));//click New repository
     await t.typeText(newRepository, 'testcafe');//sselect the textbox and writting the repository name
+    await t.wait(3000);// wait for checking the repository name
     await t.click(Selector('.btn').withText('Create repository'));//click create respository button
-    await t.wait(3000);
+    
   
  
 });
