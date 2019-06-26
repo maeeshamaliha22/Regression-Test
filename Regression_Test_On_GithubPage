@@ -1,0 +1,13 @@
+import { Selector } from 'testcafe';
+import { pick } from 'lodash';
+
+fixture `GitHub`.page `https://github.com`;
+
+	const developerNameInput = Selector('#login_field');
+	const developerPasswordInput = Selector('#password');
+
+test(`Click Sign In`, async t => {
+    await t.maximizeWindow();
+    await t.click(Selector('a.HeaderMenu-link').withText('Sign\u00a0in'));
+    await t.wait(3000); 
+});
