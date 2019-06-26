@@ -5,6 +5,10 @@ fixture `GitHub`.page `https://github.com`;
 
 	const developerNameInput = Selector('#login_field');
 	const developerPasswordInput = Selector('#password');
+	const newRepository = Selector('#repository_name');
+	const fileName = Selector('.js-blob-filename');
+	const commitNewFile = Selector('#commit-summary-input');
+	const repositoryToDelete = Selector('.input-block');
 
 test(`Click Sign In`, async t => {
     await t.maximizeWindow();//Maximize the window
@@ -29,6 +33,11 @@ test(`Click Sign In`, async t => {
     await t.typeText(commitNewFile, 'created new file');//commit summary
     await t.click(Selector('#submit-file'));//commit button click
     
-  
+    await t.click(Selector('.js-selected-navigation-item').withText('Settings'));//click settings button
+    await t.click(Selector('.btn').withText('Delete this repository'));//click delete this repository
+    await t.typeText(repositoryToDelete,'testcafe', { caretPos: 0 });//type the respository name to delete
+    await t.click(Selector('.btn-danger'));//click button to delete the repository
+    await t.wait(3000);
+   
  
 });
