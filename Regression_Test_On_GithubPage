@@ -13,9 +13,8 @@ test(`Click Sign In`, async t => {
     
     await t.typeText(developerNameInput, 'maeeshamaliha22', { caretPos: 0 })//Username input
     await t.typeText(developerPasswordInput, 'Aiubcse123', { caretPos: 0 })//password input
-    await t.expect(developerNameInput.value).contains('maeeshamaliha22', 'input contains text "maeeshamaliha22"');
-    await t.expect(developerPasswordInput.value).contains('Aiubcse123', 'input contains text "Aiubcse123"');
-    //await t.keyPress('enter')
+    await t.expect(developerNameInput.value).contains('maeeshamaliha22', 'input contains text "maeeshamaliha22"');//verify the username
+    await t.expect(developerPasswordInput.value).contains('Aiubcse123', 'input contains text "Aiubcse123"');//verify the password
     await t.click(Selector('.btn'));//click sign in button
   
  
