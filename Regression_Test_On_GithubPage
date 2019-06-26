@@ -16,6 +16,12 @@ test(`Click Sign In`, async t => {
     await t.expect(developerNameInput.value).contains('maeeshamaliha22', 'input contains text "maeeshamaliha22"');//verify the username
     await t.expect(developerPasswordInput.value).contains('Aiubcse123', 'input contains text "Aiubcse123"');//verify the password
     await t.click(Selector('.btn'));//click sign in button
+    
+    await t.click(Selector('.dropdown-caret'));//click '+' button
+    await t.click(Selector('.dropdown-item'));//click New repository
+    await t.typeText(newRepository, 'testcafe');//sselect the textbox and writting the repository name
+    await t.click(Selector('.btn').withText('Create repository'));//click create respository button
+    await t.wait(3000);
   
  
 });
