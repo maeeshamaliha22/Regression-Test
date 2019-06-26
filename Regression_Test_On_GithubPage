@@ -7,7 +7,16 @@ fixture `GitHub`.page `https://github.com`;
 	const developerPasswordInput = Selector('#password');
 
 test(`Click Sign In`, async t => {
-    await t.maximizeWindow();
-    await t.click(Selector('a.HeaderMenu-link').withText('Sign\u00a0in'));
+    await t.maximizeWindow();//Maximize the window
+    await t.click(Selector('a.HeaderMenu-link').withText('Sign\u00a0in'));//Click the sign in link on the page
     await t.wait(3000); 
+    
+    await t.typeText(developerNameInput, 'maeeshamaliha22', { caretPos: 0 })//Username input
+    await t.typeText(developerPasswordInput, 'Aiubcse123', { caretPos: 0 })//password input
+    await t.expect(developerNameInput.value).contains('maeeshamaliha22', 'input contains text "maeeshamaliha22"');
+    await t.expect(developerPasswordInput.value).contains('Aiubcse123', 'input contains text "Aiubcse123"');
+    //await t.keyPress('enter')
+    await t.click(Selector('.btn'));//click sign in button
+  
+ 
 });
